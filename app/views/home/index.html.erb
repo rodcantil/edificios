@@ -22,4 +22,10 @@
           </div>
         </div>
     </div>
+    <div class="my-5">
+      <% @users.each do |user| %>
+        <p> <%= user.nombre %></p>
+      <% end %>
+    </div>
+
 </body>

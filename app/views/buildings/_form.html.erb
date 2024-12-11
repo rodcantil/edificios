@@ -20,7 +20,10 @@
     <%= form.label :direccion, style: "display: block" %>
     <%= form.text_field :direccion %>
   </div>
-
+  <div>
+    <%= form.label :feature_ids, style: "display: block" %>
+    <%= form.collection_check_boxes :feature_ids, @features, :id, :nombre %>
+  </div>
   <div>
     <%= form.submit %>
   </div>

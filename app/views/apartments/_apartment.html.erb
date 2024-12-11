@@ -6,7 +6,19 @@
 
   <p>
     <strong>Building:</strong>
-    <%= apartment.building_id %>
+    <%= apartment.building.nombre %>
+  </p>
+
+  <p>
+    <strong>Dirección:</strong>
+    <%= apartment.building.direccion %>
+  </p>
+
+  <p>
+    <strong>Imágenes:</strong>
+    <% apartment.images.each do |image| %>
+      <%= image_tag image, class:"w-50" %>
+    <% end %>
   </p>
 
 </div>

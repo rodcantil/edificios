@@ -36,6 +36,9 @@
   </tbody>
 </table>
 
+  <div class="my-5 d-flex justify-content-end">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
   
   <% if !current_user.usuario? %>
     <div>

@@ -1,6 +1,6 @@
 class BuildingsController < ApplicationController
   before_action :set_building, only: %i[ show edit update destroy ]
-  # before_action :consultar_features, only: %i[ show new edit create update ]
+  before_action :consultar_features, only: %i[ show new edit create update ]
   before_action :authenticate_user!
   before_action :soy_usuario, except: %i[ index show ]
   before_action :soy_conserje?, except: %i[ index show new edit create update ]
@@ -10,9 +10,9 @@ class BuildingsController < ApplicationController
   # GET /buildings or /buildings.json
   def index
     # @q = Building.ransack(params[:q])
-    # @pagy, @buildings = pagy(@q.result)
-    @buildings = Building.all
-    # @total_edificios = Building.total_edificios
+    @pagy, @buildings = pagy(Building.all)
+    # @buildings = Building.all
+    @total_edificios = Building.total_edificios
   end
 
   # GET /buildings/1 or /buildings/1.json
@@ -80,5 +80,4 @@ class BuildingsController < ApplicationController
     def consultar_features
       @features = Feature.all
     end
-
 end
