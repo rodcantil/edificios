@@ -8,8 +8,8 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    # @q = Apartment.ransack(params[:q])
-    @pagy, @apartments = pagy(Apartment.all)
+    @q = Apartment.ransack(params[:q])
+    @pagy, @apartments = pagy(@q.result)
     # @apartments = Apartment.all
     @total_departamentos = Apartment.total_departamentos
   end

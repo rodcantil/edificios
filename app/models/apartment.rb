@@ -1,5 +1,4 @@
-
-  class Apartment < ApplicationRecord
+class Apartment < ApplicationRecord
     belongs_to :building
     has_many_attached :images
 
@@ -8,6 +7,7 @@
 
     scope :total_departamentos, -> { count }
 
-    # def self.ransackable_attributes(auth_object = nil)
-    #   ["building_id", "created_at", "id", "numero", "updated_at"]
-  end
+    def self.ransackable_attributes(auth_object = nil)
+      [ "building_id", "created_at", "id", "numero", "updated_at" ]
+    end
+end
